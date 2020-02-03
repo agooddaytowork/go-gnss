@@ -1,4 +1,4 @@
-module go-gnss
+module github.com/umeat/go-gnss
 
 go 1.12
 

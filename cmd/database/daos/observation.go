@@ -8,6 +8,7 @@ import (
 func GetObservation(id uint) (*models.Observation, error) {
 	// This should apparently be in config package
 	db, _ := gorm.Open("sqlite3", "test.db")
+	defer db.Close()
 
 	var obs models.Observation
 
