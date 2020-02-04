@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/umeat/go-gnss/cmd/database/apis"
 )
@@ -13,5 +14,5 @@ func main() {
 	v1 := r.Group("/api/v1")
 	v1.GET("/observation/:id", apis.GetObservation)
 
-	r.Run(fmt.Sprintf(":%v", config.Config.ServerPort))
+	r.Run(fmt.Sprintf(":%v", 8000))
 }

@@ -1,8 +1,7 @@
-// converter? 
 package util
 
 import (
-	"github.com/umeat/go-gnss/model"
+	"github.com/umeat/go-gnss/cmd/database/models"
 	"github.com/geoscienceaustralia/go-rtcm/rtcm3"
 )
 
@@ -39,16 +38,15 @@ func ParseCellMask(cellMask uint64, length int) (cells []bool) {
 	return cells
 }
 
-func ObservationMsm7(msg rtcm3.MessageMsm7) (obs model.Observation, err error) {
-	obs = model.Observation{
+func ObservationMsm7(msg rtcm3.MessageMsm7) (obs models.Observation, err error) {
+	obs = models.Observation{
 		MessageNumber: msg.MessageNumber,
 		ReferenceStationId: msg.ReferenceStationId,
 		Epoch: msg.Epoch,
 		ClockSteeringIndicator: msg.ClockSteeringIndicator,
 		ExternalClockIndicator: msg.ExternalClockIndicator,
-		SmoothingIndicator: msg.SmoothingIndicator,
 		SmoothingInterval: msg.SmoothingInterval,
-		SatelliteData: []model.SatelliteData{},
+		SatelliteData: []models.SatelliteData{},
 	}
 
 	satIDs := ParseSatelliteMask(msg.SatelliteMask)
@@ -58,17 +56,15 @@ func ObservationMsm7(msg rtcm3.MessageMsm7) (obs model.Observation, err error) {
 	sigPos := 0
 
 	for i, satID := range satIDs {
-		satData := model.SatelliteData{
+		satData := models.SatelliteData{
 			SatelliteID: satID,
-			RangeMilliseconds: msg.SatelliteData.RangeMilliseconds[i],
 			Extended: msg.SatelliteData.Extended[i],
-			Ranges: msg.SatelliteData.Ranges[i],
 			PhaseRangeRates: msg.SatelliteData.PhaseRangeRates[i],
-			SignalData: []model.SignalData{},
+			SignalData: []models.SignalData{},
 		}
 		for _, sigID := range sigIDs {
 			if cellIDs[cellPos] {
-				satData.SignalData = append(satData.SignalData, SignalData{
+				satData.SignalData = append(satData.SignalData, models.SignalData{
 					SignalID: sigID,
 					Pseudoranges: msg.SignalData.Pseudoranges[sigPos],
 					PhaseRanges: msg.SignalData.PhaseRanges[sigPos],

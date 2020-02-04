@@ -7,6 +7,7 @@ github.com/armon/consul-api v0.0.0-20180202201655-eb2c6b5be1b6/go.mod h1:grANhF5
 github.com/aws/aws-sdk-go v1.25.4/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpiN924inxo=
 github.com/bamiaux/iobit v0.0.0-20170418073505-498159a04883 h1:XNtOMwxmV2PI/vuTHDZnFzGIFNUh8MK73q7+Kna7AXs=
 github.com/bamiaux/iobit v0.0.0-20170418073505-498159a04883/go.mod h1:9IjZnSQGh45J46HHS45pxuMJ6WFTtSXbaX0FoHDvxh8=
+github.com/benburkert/http v0.0.0-20140610191404-7b1c7d0a482c h1:YuvoJany/EHKyXIEMIjXhUk0SmixfzrShM6SQ7iXrLE=
 github.com/benburkert/http v0.0.0-20140610191404-7b1c7d0a482c/go.mod h1:+Yvt6P282G+eLLgc8ZWjdO/UUlmxiF4X4OSVFeRxuVE=
 github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=
 github.com/beorn7/perks v1.0.0/go.mod h1:KWe93zE9D1o94FZ5RNwFwVgaQK1VOXiVxmqh+CedLV8=
@@ -137,6 +138,7 @@ github.com/ugorji/go v1.1.7/go.mod h1:kZn38zHttfInRq0xu/PH0az30d+z6vm202qpg1oXVM
 github.com/ugorji/go/codec v1.1.7 h1:2SvQaVZ1ouYrrKKwoSk2pzd4A9evlKJb9oTL+OaLUSs=
 github.com/ugorji/go/codec v1.1.7/go.mod h1:Ax+UKWsSmolVDwsd+7N3ZtXu+yMGCf907BLYF3GoBXY=
 github.com/umeat/go-gnss v0.0.0-20200202012032-44b419d85cd5 h1:iB9AhVeujQxNvIDz6TF5geHGfePo/fYmgJjNf5oWzg4=
+github.com/umeat/go-ntrip v0.0.0-20191003021134-305aefe538ca h1:bzY7JZrfoGhJsAJVeHFrIZkt6v7NLWFACr2EKqoK7bQ=
 github.com/umeat/go-ntrip v0.0.0-20191003021134-305aefe538ca/go.mod h1:Cf2wvDTwcLLVVmlB5B8p4f9kCaY1pd83Dj5cwMrWhZo=
 github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2/go.mod h1:UETIi67q53MR2AWcXfiuqkDkRtnGDLqkBTpCHuJHxtU=
 github.com/xordataexchange/crypt v0.0.3-0.20170626215501-b2862e3d0a77/go.mod h1:aYKd//L2LvnjZzWKhF00oedf4jCCReLcmhLdhm1A27Q=

@@ -1,21 +1,23 @@
-package model
+package models
 
 import (
 	"github.com/jinzhu/gorm"
 )
 
 type Observation struct {
+	// Could have a composite primary key of <MessageNumber (constellation) +
+	// ReferenceStationId + Epoch>
 	gorm.Model
 	// MessageNumber encodes constellation atm, could put this into SatelliteData
-	// and have each constellation nested under the same "Observation" which is
-	// unique for <Epoch + ReferenceStationId> - that could be the PK
+	// and have each constellation nested under the same "Observation" - though
+	// not sure if anything else in Observation can be different per constellation
 	MessageNumber          uint16
 	// This does not seem to be correctly implemented anywhere at the moment -
 	// could use the station name instead (otherwise have the Id link to a table 
 	// of ID + station name)
 	// Still can't assume that the ReferenceStationId from RTCM is correct
 	ReferenceStationId     uint16
-	// TODO: normalize constellation epochs with timestamp
+	// Should normalize constellation epochs with timestamp
 	Epoch                  uint32
 	// This can be normalized to a type - spec says 0-4 is not applied, applied,
 	// unknown, and reseverd
@@ -32,12 +34,13 @@ type Observation struct {
 }
 
 type SatelliteData struct {
-	gorm.Model
+	// Not sure if SatelliteData or SignalData should extend gorm.Model as well
+	ID                     int `gorm:"primary_key"`
 	ObservationID          uint
 	SatelliteID            int
 	// Can probably be int or some time type
 	RoughRangeMilliseconds uint8
-	// This is specific for each constellation
+	// This is specific for each constellation...
 	Extended               uint8
 	// Same comment as RangeMilliseconds
 	RoughRanges            uint16
@@ -46,7 +49,7 @@ type SatelliteData struct {
 }
 
 type SignalData struct {
-	gorm.Model
+	ID              int `gorm:"primary_key"`
 	SatelliteDataID uint
 	SignalID        int
 	Pseudoranges    int32
