@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/geoscienceaustralia/go-rtcm/rtcm3"
 	"github.com/umeat/go-gnss/cmd/database/models"
-	"github.com/umeat/go-gnss/cmd/database/util"
+	"github.com/umeat/go-gnss/cmd/convert_rtcm/util"
 	"github.com/umeat/go-ntrip/ntrip"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	db, err := gorm.Open("sqlite3", "database/test.db")
+	db, err := gorm.Open("sqlite3", "../test.db")
 	if err != nil {
 		panic("failed to connect database")
 	}

@@ -8,7 +8,7 @@ import (
 
 func GetObservation(id uint) (*models.Observation, error) {
 	// This should apparently be in config package
-	db, err := gorm.Open("sqlite3", "test.db")
+	db, err := gorm.Open("sqlite3", "../test.db")
 	if err != nil {
 		panic(err)
 	}
